@@ -10,43 +10,33 @@ use App\User;
 class Register extends Component
 {
 	public $name;
-    public $email;
-    public $password;
-    public $password_confirmation;
-    
-    /**
-     * store
-     *
-     * @return void
-     */
-    public function store()
-    {
-        $this->validate([
-            'name'      => 'required',
-            'email'     => 'required|email|unique:users',
-            'password'  => 'required|confirmed|min:8'
-        ]);
+	public $email;
+	public $password;
+	public $password_confirmation;
 
-        $user = User::create([
-            'name'      => $this->name,
-            'email'     => $this->email,
-            'api_token'	=> Str::random(60),
+	public function store()
+	{
+		$this->validate([
+			'name'      => 'required',
+			'email'     => 'required|email|unique:users',
+			'password'  => 'required|confirmed|min:8'
+		]);
+
+		$user = User::create([
+			'name'      => $this->name,
+			'email'     => $this->email,
+			'api_token'	=> Str::random(60),
 			'password'	=> Hash::make($this->password),
-        ]);
+		]);
 
-        if($user) {
-            session()->flash('success', 'Register Berhasil!.');
-            return redirect()->route('auth.login');
-        }
-    }
+		if($user) {
+			session()->flash('success', 'Register Berhasil!.');
+			return redirect()->route('auth.login');
+		}
+	}
 
-    /**
-     * render
-     *
-     * @return void
-     */
-    public function render()
-    {
-        return view('livewire.auth.register');
-    }
+	public function render()
+	{
+		return view('livewire.auth.register');
+	}
 }
