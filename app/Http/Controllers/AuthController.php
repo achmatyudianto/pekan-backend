@@ -27,7 +27,7 @@ class AuthController extends Controller
 			'password'	=> Hash::make($request->password),
 		]);
 
-		return response()->json(new UserResource($user), 201);
+		return new UserResource($user);
 	}
 
 	public function login(Request $request, User $user) 
