@@ -27,7 +27,7 @@ class PekanController extends Controller
 			'amount'		=> $request->amount,
 		]);
 
-		return response()->json(new PekanResource($pekan), 201);
+		return new PekanResource($pekan);
 	}
 
 	public function read(Request $request, Pekan $pekan)
