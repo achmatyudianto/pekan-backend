@@ -8,6 +8,9 @@ Route::post('auth/register', 'AuthController@register');
 Route::post('auth/login', 'AuthController@login');
 
 Route::group(['middleware' => 'auth:api'], function(){
+	//profile
+	Route::get('profile', 'ProfileController@read');
+	Route::post('profile', 'ProfileController@update');
 	//pekan
 	Route::post('pekan', 'PekanController@create');
 	Route::get('pekan', 'PekanController@read');
