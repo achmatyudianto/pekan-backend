@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function pekans()
+    {
+        return $this->hasMany(Pekan::class, 'id');
+    }
+
+    public function ownsPekan(Pekan $pekan)
+    {
+        return auth()->id() == $pekan->user_id;
+    }
 }
