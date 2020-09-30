@@ -13,15 +13,41 @@
     @livewireScripts
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <script src="{{ mix('js/app.js') }}"></script>   
-    <style>
+    <script src="{{ mix('js/app.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/main.css">   
+    <!-- <style>
         body {
             font-family: 'Quicksand', sans-serif;
             background: #e0ebf3
         }
-    </style>
+    </style> -->
 </head>
 <body>
+    @if(auth()->check())
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
+      <div class="container">
+        <a class="navbar-brand" href="#">PeKan</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ Auth()->user()->name }}</a>
+              <div class="dropdown-menu dropdown-menu-right animate slideIn" aria-labelledby="navbarDropdown">
+                <livewire:pekan.logout>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    @endif
+
     @yield('content')
 
     <script>
