@@ -11,7 +11,7 @@ use App\Pekan;
 class Spending extends Component
 {
 	use WithPagination;
-	
+
 	public $pekan_id, $description, $amount;
 	public $updateMode = false;
 
@@ -24,8 +24,9 @@ class Spending extends Component
     {
     	$pekan = Pekan::where('user_id', Auth::user()->id)
     				->where('type', 'S')
-    				->latest()->paginate(10)->fresh();
-        return view('livewire.pekan.spending', ['pekan' => $pekan ]);
+    				->latest()->paginate(10);
+
+        return view('livewire.pekan.spending', ['pekan' => $pekan]);
     }
 
     public function store()

@@ -48,6 +48,7 @@
 			            @endforeach
 			        </tbody>
 			    </table>
+			    {{ $pekan->links() }}
 			</div>	
 	    </div>
 	  </div>
