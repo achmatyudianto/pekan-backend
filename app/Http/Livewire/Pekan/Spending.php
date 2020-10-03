@@ -11,8 +11,8 @@ use App\Pekan;
 class Spending extends Component
 {
 	use WithPagination;
-
-	public $pekan, $pekan_id, $description, $amount;
+	
+	public $pekan_id, $description, $amount;
 	public $updateMode = false;
 
 	private function resetInputFields(){
@@ -22,11 +22,10 @@ class Spending extends Component
 
     public function render()
     {
-    	$this->pekan = Pekan::where('user_id', Auth::user()->id)
+    	$pekan = Pekan::where('user_id', Auth::user()->id)
     				->where('type', 'S')
-    				->get();
-
-        return view('livewire.pekan.spending');
+    				->latest()->paginate(10)->fresh();
+        return view('livewire.pekan.spending', ['pekan' => $pekan ]);
     }
 
     public function store()

@@ -11,6 +11,7 @@ use App\Pekan;
 class Income extends Component
 {
 	use WithPagination;
+	
 	public $pekan_id, $description, $amount;
 	public $updateMode = false;
 
