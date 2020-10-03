@@ -29,10 +29,14 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
       <div class="container">
-        <a class="navbar-brand" href="#">PeKan</a>
+        <a class="navbar-brand" href="#">
+          <img src="images/pekan.png" width="45" alt="">
+        </a>
+        <div style="font-weight: bold;"><i class="text-danger">Pe</i><i class="text-success">Kan</i> <br><i class="text-muted" style="font-size: 8pt;">Pengeluaran - Pemasukan</i>
+        </div>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
-            </button>
+        </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item dropdown">
@@ -56,6 +60,12 @@
         @elseif(session()->has('error'))
             toastr.error('{{ session('error') }}')
         @endif
+    </script>
+    <script type="text/javascript">
+        window.livewire.on('pekanStore', () => {
+            $('#createModal').modal('hide');
+            $('#updateModal').modal('hide');
+        });
     </script>
 </body>
 </html>
