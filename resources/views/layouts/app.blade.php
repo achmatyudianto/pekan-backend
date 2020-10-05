@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="turbolinks-cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" href="images/pekan.png">
     <title>PeKan</title>
@@ -57,8 +58,8 @@
     @yield('content')
     <script type="text/javascript">
         document.addEventListener("turbolinks:load", function(event) {
-            Turbolinks.clearCache();
             Turbolinks.setProgressBarDelay(100);
+            Turbolinks.clearCache();
         });
     </script>
     <script>
