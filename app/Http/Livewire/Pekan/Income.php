@@ -24,7 +24,9 @@ class Income extends Component
     {
     	$pekan = Pekan::where('user_id', Auth::user()->id)
     				->where('type', 'I')
-    				->latest()->paginate(10);
+                    ->orderBy('id', 'DESC')
+    				->paginate(10);
+                    
         return view('livewire.pekan.income', ['pekan' => $pekan]);
     }
 
