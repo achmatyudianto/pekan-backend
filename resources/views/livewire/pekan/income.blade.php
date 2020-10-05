@@ -4,10 +4,10 @@
 	    <div class="card-body p-4">
 	    	<ul class="nav nav-tabs">
 			  <li class="nav-item">
-			    <a class="nav-link" style="color:#545b62;" href="{{ route('pekan.dashboard') }}">Dasboard</a>
+			    <a class="nav-link" style="color:#545b62;" href="{{ route('pekan.dashboard') }}" data-turbolinks-action="replace">Dasboard</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" style="color:#545b62;" href="{{ route('pekan.spending') }}">Pengeluaran</a>
+			    <a class="nav-link" style="color:#545b62;" href="{{ route('pekan.spending') }}" data-turbolinks-action="replace">Pengeluaran</a>
 			  </li>
 			  <li class="nav-item active">
 			    <a class="nav-link active text-success" href="#">Pemasukan</a>

@@ -28,7 +28,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Batal</button>
-                <button type="button" wire:click.prevent="store()" class="btn btn-primary close-modal">Simpan</button>
+                <button type="button" wire:click.prevent="store()" class="btn btn-primary close-modal" data-turbolinks-action="replace">Simpan</button>
             </div>
         </div>
     </div>
