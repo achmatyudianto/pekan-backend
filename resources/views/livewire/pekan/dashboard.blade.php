@@ -7,10 +7,10 @@
 			    <a class="nav-link active text-success" href="#">Dasboard</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" style="color:#545b62;" href="{{ route('pekan.spending') }}" data-turbolinks-action="replace">Pengeluaran</a>
+			    <a class="nav-link" style="color:#545b62;" href="{{ route('pekan.spending') }}" data-turbolinks="true">Pengeluaran</a>
 			  </li>
 			  <li class="nav-item">
-			    <a class="nav-link" style="color:#545b62;" href="{{ route('pekan.income') }}" data-turbolinks-action="replace">Pemasukan</a>
+			    <a class="nav-link" style="color:#545b62;" href="{{ route('pekan.income') }}" data-turbolinks="true">Pemasukan</a>
 			  </li>
 			</ul>
 
