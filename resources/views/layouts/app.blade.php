@@ -19,6 +19,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" type="text/css" href="assets/main.css">
+    <style type="text/css">
+        .turbolinks-progress-bar {
+          height: 3px;
+          background-color: #7fda56;
+        }
+    </style>
 </head>
 <body>
     @if(auth()->check())
@@ -49,7 +55,12 @@
     @endif
 
     @yield('content')
-
+    <script type="text/javascript">
+        document.addEventListener("turbolinks:load", function(event) {
+            Turbolinks.clearCache();
+            Turbolinks.setProgressBarDelay(100);
+        });
+    </script>
     <script>
         @if(session()->has('success'))
             toastr.success('{{ session('success') }}')
