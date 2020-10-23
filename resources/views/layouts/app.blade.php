@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="turbolinks-cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Laravel Livewire Authentication</title>
+    <link rel="shortcut icon" href="images/pekan.png">
+    <title>PeKan</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -13,10 +15,17 @@
     @livewireScripts
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
-    <script src="{{ mix('js/app.js') }}"></script>
     <link rel="stylesheet" type="text/css" href="assets/main.css">
+    <style type="text/css">
+        .turbolinks-progress-bar {
+          height: 3px;
+          background-color: #7fda56;
+        }
+    </style>
 </head>
 <body>
     @if(auth()->check())
@@ -47,7 +56,12 @@
     @endif
 
     @yield('content')
-
+    <script type="text/javascript">
+        document.addEventListener("turbolinks:load", function(event) {
+            Turbolinks.setProgressBarDelay(100);
+            Turbolinks.clearCache();
+        });
+    </script>
     <script>
         @if(session()->has('success'))
             toastr.success('{{ session('success') }}')
